@@ -4,6 +4,7 @@ import Paddle from "./paddle.js";
 import drawFPS from "./dev_info.js";
 import InputHandler from "./input.js";
 import Ball from "./ball.js";
+import Brick from "./brick.js";
 
 let canvas = document.getElementById("gameScreen");
 let context = canvas.getContext("2d");
@@ -28,13 +29,17 @@ function generateBricks() {
   topMargin = 10;
   brickBottomMargin = 10;
 
-  initalPosition = { x: leftMargin, y: top };
+  position = { x: leftMargin, y: top };
 
   for (let row = 0; row < rows; row++) {
     for (let column = 0; column < columns; column++) {
-      // create brick object
-      // increase position
+      brick = new Brick(GAME_WIDTH, GAME_HEIGHT, position.x, position.y);
+      bricks.push(brick);
+      // goto next colume
+      position.x += brickWidth + brickRightMargin;
     }
+    // go to next row down
+    position.y += brickHeight + brickBottomMargin;
   }
 }
 
