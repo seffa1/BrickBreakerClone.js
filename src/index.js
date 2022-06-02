@@ -10,8 +10,8 @@ let context = canvas.getContext("2d");
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
-new InputHandler();
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
+new InputHandler(paddle);
 let lastTime = 0;
 
 // timeStamp comes from the requestAnimationFrame function

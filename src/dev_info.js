@@ -6,4 +6,5 @@ export default function drawFPS(context, deltaTime) {
   let fps = 1 / s;
 
   context.fillText(`fps: ${Math.round(fps)}`, 5, 20);
+  context.fillText(`dt: ${Math.round(deltaTime)}`, 5, 40);
 }
