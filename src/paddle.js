@@ -8,7 +8,13 @@ export default class Paddle {
     };
   }
 
-  //   draw(context) {
-  //     context.fillRect(this.position.x, this.position.y, this.width, this.height);
-  //   }
+  draw(context) {
+    if (!context) throw new Error("Please add context as an argument");
+    context.fillStyle = "green";
+    context.fillRect(this.position.x, this.position.y, this.width, this.height);
+  }
+
+  update(deltaTime) {
+    if (!deltaTime) return;
+  }
 }
