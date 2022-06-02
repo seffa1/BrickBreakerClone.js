@@ -15,6 +15,29 @@ let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
 new InputHandler(paddle);
 let lastTime = 0;
 
+function generateBricks() {
+  let bricks = [];
+
+  columns = 7;
+  brickWidth = 80;
+  leftMargin = 30;
+  brickRightMargin = 30;
+
+  rows = 10;
+  brickHeight = 30;
+  topMargin = 10;
+  brickBottomMargin = 10;
+
+  initalPosition = { x: leftMargin, y: top };
+
+  for (let row = 0; row < rows; row++) {
+    for (let column = 0; column < columns; column++) {
+      // create brick object
+      // increase position
+    }
+  }
+}
+
 // timeStamp comes from the requestAnimationFrame function
 function gameLoop(timeStamp) {
   let deltaTime = timeStamp - lastTime;
