@@ -29,7 +29,7 @@ function generateBricks() {
   topMargin = 10;
   brickBottomMargin = 10;
 
-  position = { x: leftMargin, y: top };
+  position = { x: leftMargin, y: topMargin };
 
   for (let row = 0; row < rows; row++) {
     for (let column = 0; column < columns; column++) {
