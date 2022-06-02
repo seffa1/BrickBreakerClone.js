@@ -3,6 +3,7 @@
 import Paddle from "./paddle.js";
 import drawFPS from "./dev_info.js";
 import InputHandler from "./input.js";
+import Ball from "./ball.js";
 
 let canvas = document.getElementById("gameScreen");
 let context = canvas.getContext("2d");
