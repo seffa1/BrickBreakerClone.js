@@ -11,7 +11,10 @@ export default class Ball {
     this.velocity = { x: 0, y: 0.2 };
   }
 
-  update(deltaTime, bricks, paddle) {
+  update(deltaTime, game) {
+    let bricks = game.entities[2]; // an array of bricks
+    let paddle = game.entities[1][0];
+
     if (!deltaTime) return;
     if (!bricks || !paddle) throw new Error("Please add all arguments!");
 

@@ -13,7 +13,7 @@ export default class Paddle {
     this.increase = 0;
   }
 
-  update(deltaTime) {
+  update(deltaTime, game) {
     if (!deltaTime) return;
     // Change speed up factor to correct direction
     if (this.velocity > 0) this.increase = this.increaseABS;
