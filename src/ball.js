@@ -39,14 +39,9 @@ export default class Ball {
       }
     }
 
-    // with paddle
-    // if (this.isCollided(paddle)) {
-    //   this.velocity.x = -this.velocity.x;
-    // }
-
     // advance position based on velocity in y-direction
     this.position.y += this.velocity.y * deltaTime;
-    // y-direction collsions ------------------------------------------------------------
+    // y-direction collisions ------------------------------------------------------------
     // with canvas boundaries
     // check if out of bounds, if so, adjust velocity based on collision type
     if (this.position.y < 0) {
@@ -62,6 +57,7 @@ export default class Ball {
           brick.break();
           this.velocity.y = -this.velocity.y;
           this.speedUp();
+          paddle.speedUp();
         }
       }
     }

@@ -26,8 +26,6 @@ function gameLoop(timeStamp) {
 
   context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-  // Check events
-
   // Updates
   paddle.update(deltaTime);
   ball.update(deltaTime, bricks, paddle);

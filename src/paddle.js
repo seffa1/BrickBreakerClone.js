@@ -38,4 +38,8 @@ export default class Paddle {
     context.fillStyle = "green";
     context.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
+
+  speedUp() {
+    this.increaseABS += 0.02;
+  }
 }
