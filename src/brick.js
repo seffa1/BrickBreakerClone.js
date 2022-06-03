@@ -11,7 +11,7 @@ export default class Brick {
   draw(context) {
     if (!context) throw new Error("Please add context");
     context.fillStyle = "blue";
-    if (this.isBroken) context.fillStyle = "red";
+    if (this.isBroken) context.fillStyle = "white";
     context.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 

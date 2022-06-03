@@ -8,7 +8,7 @@ export default class Ball {
       x: GAME_WIDTH / 2 - this.width / 2,
       y: GAME_HEIGHT / 2 + this.height,
     };
-    this.velocity = { x: 0.05, y: 0.1 };
+    this.velocity = { x: 0, y: 0.2 };
   }
 
   update(deltaTime, bricks, paddle) {
@@ -61,6 +61,7 @@ export default class Ball {
         if (this.isCollided(brick)) {
           brick.break();
           this.velocity.y = -this.velocity.y;
+          this.speedUp();
         }
       }
     }
@@ -70,11 +71,8 @@ export default class Ball {
       //---> no paddle velocity or paddle velocity opposite of balls, flip ball y velocity
       this.velocity.y = -this.velocity.y;
       //---> paddle velocity not zero, and same direction as ball, flip ball x velotiy
-      if (paddle.velocity.x > 0 && this.velocity.x > 0) {
-        this.velocity.x = -this.velocity.x;
-      }
-      if (paddle.velocity.x < 0 && this.velocity.x < 0) {
-        this.velocity.x = -this.velocity.x;
+      if (paddle.velocity != 0) {
+        this.velocity.x += -paddle.velocity / 10;
       }
     }
 
@@ -103,5 +101,13 @@ export default class Ball {
     if (this.position.y > object.position.y + object.height) return false;
     console.log("Ball Collision!");
     return true;
+  }
+
+  speedUp() {
+    let increase = 0.02;
+    if (this.velocity.x > 0) this.velocity.x += increase;
+    if (this.velocity.x < 0) this.velocity.x -= increase;
+    if (this.velocity.y > 0) this.velocity.y += increase;
+    if (this.velocity.y < 0) this.velocity.x -= increase;
   }
 }
