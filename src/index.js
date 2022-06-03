@@ -80,3 +80,16 @@ function generateBricks() {
   }
   return bricks;
 }
+
+function main() {
+  let running = true;
+  // get canvas and context
+  // create start menu
+  // create game
+  // while running
+  // ---playing = start_menu.run()
+  // ---while playing
+  // ------game.run()
+  // ------playing - game_menu.run()
+  // ------running
+}
