@@ -34,10 +34,10 @@ function gameLoop(timeStamp) {
 
   // Drawing
   paddle.draw(context);
-  ball.draw(context);
   for (let brick of bricks) {
     brick.draw(context);
   }
+  ball.draw(context);
 
   drawFPS(context, deltaTime);
 
