@@ -34,7 +34,8 @@ export default class Game {
     this.drawFPS(this.context, deltaTime);
 
     // Repeat
-    // requestAnimationFrame((timeStamp) => this.gameLoop(timeStamp)); // this causes the browser to crash
+    // requestAnimationFrame(gameLoop); // this causes the browser to crash
+    console.log(this);
     // solution i think -> https://stackoverflow.com/questions/28908999/use-requestanimationframe-in-a-class
   }
 

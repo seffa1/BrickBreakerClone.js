@@ -36,6 +36,7 @@ function main() {
     let playing = true; // replace this with start menu
 
     while (playing) {
+      // is this causing infinite loops?
       game.run();
 
       // pause menu here
