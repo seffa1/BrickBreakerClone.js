@@ -7,6 +7,7 @@ export default class Game {
     this.playing = false;
     this.lastTime = 0;
     this.entities = {}; // {1: ['paddle'], 2: ['bricks'], 3: ['ball']}
+    this.frame = 0;
   }
 
   // Game Loop ----------------------------------------
@@ -31,11 +32,11 @@ export default class Game {
         entity.draw(this.context);
       }
     }
-    this.drawFPS(this.context, deltaTime);
+    this.drawFPS(deltaTime);
 
-    // Repeat
-    // requestAnimationFrame(gameLoop); // this causes the browser to crash
-    console.log(this);
+    // Need to learn more about how 'this' is working in this line
+    window.requestAnimationFrame(this.gameLoop.bind(this));
+
     // solution i think -> https://stackoverflow.com/questions/28908999/use-requestanimationframe-in-a-class
   }
 
@@ -48,10 +49,11 @@ export default class Game {
   }
 
   run() {
-    this.playing = true;
-    while (this.playing) {
-      this.gameLoop();
-    }
+    // this.playing = true;
+    // while (this.playing) {
+    //   this.gameLoop();
+    // }
+    this.gameLoop();
   }
 
   drawFPS(deltaTime) {
@@ -60,6 +62,7 @@ export default class Game {
     let ms = deltaTime;
     let s = deltaTime / 1000;
     let fps = 1 / s;
+    // console.log(ms);
 
     this.context.fillText(`fps: ${Math.round(fps)}`, 5, 20);
     this.context.fillText(`dt: ${Math.round(deltaTime)}`, 5, 40);

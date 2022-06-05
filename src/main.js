@@ -7,12 +7,8 @@ import Game from "./game.js";
 import Brick from "./brick.js";
 
 function main() {
-  let running = true;
-
   // get canvas and context
   let canvas = document.getElementById("gameScreen");
-
-  // create start menu
 
   // GAME SETUP --------------------------
   const GAME_WIDTH = 800;
@@ -31,19 +27,22 @@ function main() {
   }
   game.addEntity(ball, 3);
 
-  while (running) {
-    // ---playing = start_menu.run()
-    let playing = true; // replace this with start menu
+  // create start menu
+  game.run(); // temporary until we add menus
+  let running = false;
+  // while (running) {
+  //   // ---playing = start_menu.run()
+  //   let playing = true; // replace this with start menu
 
-    while (playing) {
-      // is this causing infinite loops?
-      game.run();
+  //   while (playing) {
+  //     // is this causing infinite loops?
+  //     game.run();
 
-      // pause menu here
-      // playing = game_menu.run()
-      // running = playing
-    }
-  }
+  //     // pause menu here
+  //     // playing = game_menu.run()
+  //     // running = playing
+  //   }
+  // }
 }
 
 main();
