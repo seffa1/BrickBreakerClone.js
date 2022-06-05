@@ -5,16 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Game</title>
-    <style>
-      #gameScreen {
-        border: 1px solid black;
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <canvas id="gameScreen" width="800" height="600"></canvas>
+    <div class="score">
+      <div class="bricksBroken">
+        <h1>Bricks Broken:</h1>
+        <h2 id="brokenCounter">0</h2>
+      </div>
+      <div class="bricksRemaining">
+        <h1>Bricks Remaining:</h1>
+        <h2 id="remainingCounter">0</h2>
+      </div>
+      <div class="livesRemaining">
+        <h1>Lives Remaining:</h1>
+        <h2 id="livesCounter">3</h2>
+      </div>
+    </div>
 
-    <script type="module" src="src/index.js"></script>
+    <script type="module" src="src/main.js"></script>
     <!-- <script type="module" src="src/paddle.js"></script> -->
   </body>
 </html>

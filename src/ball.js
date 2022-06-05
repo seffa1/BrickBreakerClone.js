@@ -4,14 +4,25 @@ export default class Ball {
     this.GAME_HEIGHT = GAME_HEIGHT;
     this.width = 10;
     this.height = 10;
+    this.initX = GAME_WIDTH / 2 - this.width / 2;
+    this.initY = GAME_HEIGHT / 2 + this.height;
     this.position = {
-      x: GAME_WIDTH / 2 - this.width / 2,
-      y: GAME_HEIGHT / 2 + this.height,
+      x: this.initX,
+      y: this.initY,
     };
-    this.velocity = { x: 0, y: 0.2 };
+    this.velocity = { x: 0, y: 0.4 };
+    this.SPEED_UP_FACTOR = 0.03;
+    this.lives = 3;
   }
 
-  update(deltaTime, bricks, paddle) {
+  update(deltaTime, game) {
+    if (this.lives < 1) {
+      alert("Refresh to continue");
+      return;
+    }
+    let bricks = game.entities[2]; // an array of bricks
+    let paddle = game.entities[1][0];
+
     if (!deltaTime) return;
     if (!bricks || !paddle) throw new Error("Please add all arguments!");
 
@@ -47,6 +58,15 @@ export default class Ball {
     if (this.position.y < 0) {
       this.position.y = 0;
       this.velocity.y = -this.velocity.y;
+    }
+    // check if out of bounds off the bottom, then lose life and restart
+    if (this.position.y > this.GAME_HEIGHT) {
+      console.log("position y " + this.position.y);
+      this.lives--;
+      if (this.lives === 0) {
+        alert("Game Over, refresh to play");
+      }
+      this.reset(game);
     }
 
     // with bricks
@@ -95,15 +115,21 @@ export default class Ball {
     if (this.position.y + this.height < object.position.y) return false;
     // The y position of the ball is less than the y position of the brick plus its height.
     if (this.position.y > object.position.y + object.height) return false;
-    console.log("Ball Collision!");
     return true;
   }
 
   speedUp() {
-    let increase = 0.02;
-    if (this.velocity.x > 0) this.velocity.x += increase;
-    if (this.velocity.x < 0) this.velocity.x -= increase;
-    if (this.velocity.y > 0) this.velocity.y += increase;
-    if (this.velocity.y < 0) this.velocity.x -= increase;
+    if (this.velocity.x > 0) this.velocity.x += this.SPEED_UP_FACTOR;
+    if (this.velocity.x < 0) this.velocity.x -= this.SPEED_UP_FACTOR;
+    if (this.velocity.y > 0) this.velocity.y += this.SPEED_UP_FACTOR;
+    if (this.velocity.y < 0) this.velocity.x -= this.SPEED_UP_FACTOR;
+  }
+
+  reset(game) {
+    alert(`${this.lives} lives remaining!`);
+    this.position.x = this.initX;
+    this.position.y = this.initY;
+    this.velocity.x = 0;
+    game.entities[1][0].reset();
   }
 }

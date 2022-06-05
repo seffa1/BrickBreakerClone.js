@@ -8,6 +8,8 @@ export default class Brick {
     this.isBroken = false;
   }
 
+  update(deltaTime, game) {}
+
   draw(context) {
     if (!context) throw new Error("Please add context");
     context.fillStyle = "blue";
