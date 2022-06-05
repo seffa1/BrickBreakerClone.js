@@ -15,7 +15,8 @@
 }
 
 .bricksBroken,
-.bricksRemaining {
+.bricksRemaining,
+.livesRemaining {
   font-size: large;
   display: flex;
   flex-direction: row;

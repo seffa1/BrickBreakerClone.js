@@ -3,12 +3,15 @@ export default class Score {
     this.totalBricks = null;
     this.bricksRemaining = null;
     this.bricksBroken = 0;
+    this.lives = 3;
   }
   update(deltaTime, game) {
     this.countBricks(game);
     document.getElementById("brokenCounter").innerHTML = this.bricksBroken;
     document.getElementById("remainingCounter").innerHTML =
       this.bricksRemaining;
+    document.getElementById("livesCounter").innerHTML =
+      game.entities[3][0].lives; // gets ball object
   }
   draw(context) {}
 
@@ -21,7 +24,6 @@ export default class Score {
       (brick) => brick.isBroken === false
     ).length;
     // this.bricksRemaining = game.entities[2].length;
-    console.log(this.bricksRemaining);
     this.bricksBroken = this.totalBricks - this.bricksRemaining;
   }
 }

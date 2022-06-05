@@ -4,13 +4,16 @@ export default class Paddle {
     this.GAME_HEIGHT = GAME_HEIGHT;
     this.width = 150;
     this.height = 30;
+    this.initX = GAME_WIDTH / 2 - this.width / 2;
+    this.initY = GAME_HEIGHT - this.height - 10;
     this.position = {
-      x: GAME_WIDTH / 2 - this.width / 2,
-      y: GAME_HEIGHT - this.height - 10,
+      x: this.initX,
+      y: this.initY,
     };
     this.velocity = 0; // updated by input.js eventHandler
     this.increaseABS = 0; // a velocity increase increased with each brike that breaks, via ball.js. absolute value.
     this.increase = 0;
+    this.SPEED_UP_FACTOR = 0.05;
   }
 
   update(deltaTime, game) {
@@ -40,6 +43,12 @@ export default class Paddle {
   }
 
   speedUp() {
-    this.increaseABS += 0.02;
+    this.increaseABS += this.SPEED_UP_FACTOR;
+  }
+
+  reset() {
+    this.position.x = this.initX;
+    this.position.y = this.initY;
+    this.velocity = 0;
   }
 }

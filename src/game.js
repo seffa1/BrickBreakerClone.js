@@ -8,12 +8,14 @@ export default class Game {
     this.lastTime = 0;
     this.entities = {}; // {1: ['paddle'], 2: ['bricks'], 3: ['ball']}
     this.frame = 0;
+    this.MAX_DELTA_TIME = 100;
   }
 
   // Game Loop ----------------------------------------
   gameLoop(timeStamp) {
     // Calculate delta time
     let deltaTime = timeStamp - this.lastTime;
+    if (deltaTime > this.MAX_DELTA_TIME) deltaTime = this.MAX_DELTA_TIME;
     this.lastTime = timeStamp;
 
     // Clear screen
