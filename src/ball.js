@@ -98,7 +98,6 @@ export default class Ball {
     if (this.position.y + this.height < object.position.y) return false;
     // The y position of the ball is less than the y position of the brick plus its height.
     if (this.position.y > object.position.y + object.height) return false;
-    console.log("Ball Collision!");
     return true;
   }
 

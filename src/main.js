@@ -5,6 +5,7 @@ import InputHandler from "./input.js";
 import Ball from "./ball.js";
 import Game from "./game.js";
 import Brick from "./brick.js";
+import Score from "./score.js";
 
 function main() {
   // get canvas and context
@@ -18,30 +19,36 @@ function main() {
   new InputHandler(paddle);
   let bricks = generateBricks(GAME_WIDTH, GAME_HEIGHT);
   let ball = new Ball(GAME_WIDTH, GAME_HEIGHT);
+  let game = new Game(canvas, GAME_WIDTH, GAME_HEIGHT);
+  let score = new Score();
 
   // Add objects to game
-  let game = new Game(canvas, GAME_WIDTH, GAME_HEIGHT);
   game.addEntity(paddle, 1);
   for (let brick of bricks) {
     game.addEntity(brick, 2);
   }
   game.addEntity(ball, 3);
+  game.addEntity(score, 0);
 
   // create start menu
+  let running = true;
   game.run(); // temporary until we add menus
-  let running = false;
+
+  // This causes browser to crash --!
   // while (running) {
   //   // ---playing = start_menu.run()
   //   let playing = true; // replace this with start menu
+  //   console.log("things");
 
-  //   while (playing) {
-  //     // is this causing infinite loops?
-  //     game.run();
+  // while (playing) {
+  //   // is this causing infinite loops?
+  //   game.run();
+  //   console.log("thing");
 
-  //     // pause menu here
-  //     // playing = game_menu.run()
-  //     // running = playing
-  //   }
+  // pause menu here
+  // playing = game_menu.run()
+  // running = playing
+  // }
   // }
 }
 

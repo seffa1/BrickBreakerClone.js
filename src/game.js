@@ -35,9 +35,8 @@ export default class Game {
     this.drawFPS(deltaTime);
 
     // Need to learn more about how 'this' is working in this line
+    // https://stackoverflow.com/questions/47987307/cannot-read-property-of-null
     window.requestAnimationFrame(this.gameLoop.bind(this));
-
-    // solution i think -> https://stackoverflow.com/questions/28908999/use-requestanimationframe-in-a-class
   }
 
   // Utils ----------------------------------------
