@@ -1,11 +1,12 @@
-export default class Paddle {
-  constructor(GAME_WIDTH, GAME_HEIGHT) {
-    this.GAME_WIDTH = GAME_WIDTH;
-    this.GAME_HEIGHT = GAME_HEIGHT;
+import Entity from "./entity.js";
+
+export default class Paddle extends Entity {
+  constructor(game, id) {
+    super(game, id);
     this.width = 150;
     this.height = 30;
-    this.initX = GAME_WIDTH / 2 - this.width / 2;
-    this.initY = GAME_HEIGHT - this.height - 10;
+    this.initX = this.GAME_WIDTH / 2 - this.width / 2;
+    this.initY = this.GAME_HEIGHT - this.height - 10;
     this.position = {
       x: this.initX,
       y: this.initY,

@@ -1,14 +1,13 @@
-export default class Brick {
-  constructor(GAME_WIDTH, GAME_HEIGHT, positionX, positionY, width, height) {
-    this.GAME_HEIGHT = GAME_HEIGHT;
-    this.GAME_WIDTH = GAME_WIDTH;
+import Entity from "./entity.js";
+
+export default class Brick extends Entity {
+  constructor(game, id, positionX, positionY, width, height) {
+    super(game, id);
     this.width = width;
     this.height = height;
     this.position = { x: positionX, y: positionY };
     this.isBroken = false;
   }
-
-  update(deltaTime, game) {}
 
   draw(context) {
     if (!context) throw new Error("Please add context");

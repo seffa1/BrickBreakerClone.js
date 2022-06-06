@@ -1,3 +1,7 @@
+// To use this class, inherit it from a game-specific class like:
+// class BrickBreakerGame extend Game {}
+// and then setup that game-specific entities in that class instead
+
 export default class Game {
   constructor(canvas, GAME_WIDTH, GAME_HEIGHT) {
     this.canvas = canvas;
@@ -42,18 +46,14 @@ export default class Game {
   }
 
   // Utils ----------------------------------------
-  addEntity(entity, id) {
-    if (!this.entities[id]) {
-      this.entities[id] = [];
+  addEntity(entity) {
+    if (!this.entities[entity.id]) {
+      this.entities[entity.id] = [];
     }
-    this.entities[id].push(entity);
+    this.entities[entity.id].push(entity);
   }
 
   run() {
-    // this.playing = true;
-    // while (this.playing) {
-    //   this.gameLoop();
-    // }
     this.gameLoop();
   }
 

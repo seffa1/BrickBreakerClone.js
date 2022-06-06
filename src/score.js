@@ -1,5 +1,8 @@
-export default class Score {
-  constructor() {
+import Entity from "./entity.js";
+
+export default class Score extends Entity {
+  constructor(game, id) {
+    super(game, id);
     this.totalBricks = null;
     this.bricksRemaining = null;
     this.bricksBroken = 0;
