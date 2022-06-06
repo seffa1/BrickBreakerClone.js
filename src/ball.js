@@ -1,11 +1,12 @@
-export default class Ball {
-  constructor(GAME_WIDTH, GAME_HEIGHT) {
-    this.GAME_WIDTH = GAME_WIDTH;
-    this.GAME_HEIGHT = GAME_HEIGHT;
+import Entity from "./entity.js";
+
+export default class Ball extends Entity {
+  constructor(game, id) {
+    super(game, id);
     this.width = 10;
     this.height = 10;
-    this.initX = GAME_WIDTH / 2 - this.width / 2;
-    this.initY = GAME_HEIGHT / 2 + this.height;
+    this.initX = this.GAME_WIDTH / 2 - this.width / 2;
+    this.initY = this.GAME_HEIGHT / 2 + this.height;
     this.position = {
       x: this.initX,
       y: this.initY,
